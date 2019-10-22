@@ -2,3 +2,6 @@
 
 @import "../node_modules/normalize.css/normalize.css";
 
+body {
+  font-family: sans-serif;
+}
