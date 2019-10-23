@@ -7,11 +7,11 @@
     </label>
     <div>Réponses possibles</div>
     <div>
-      <div *ngFor="let letter of ['A', 'B', 'C', 'D']">
+      <label class="answer" *ngFor="let letter of ['A', 'B', 'C', 'D']">
         <span>{{letter}}</span>
         <input type="text">
         <input type="radio">
-      </div>
+      </label>
     </div>
     <div class="buttons">
       <button routerLink="/setup">Annuler</button>
