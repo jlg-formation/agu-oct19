@@ -42,6 +42,24 @@ button {
       border: 0.1em solid #ccc;
     }
   }
+
+  &.primary {
+    background: #333;
+    border: 0.1em solid #333;
+    color: white;
+
+    &:not(:disabled) {
+      &:hover {
+        background: #444;
+        border: 0.1em solid #444;
+      }
+
+      &:active {
+        background: #555;
+        border: 0.1em solid #555;
+      }
+    }
+  }
 }
 
 a {
