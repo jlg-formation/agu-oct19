@@ -1,12 +1,14 @@
 <main>
-  <h1>Quizz: Les capitales d'europe</h1>
+  <h1>Quizz: Les plus belles capitales d'europe continentale</h1>
   <p>Quelle est la capitale de la Belgique ?</p>
   <form>
-    <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
-      <input type="radio">
-      <span>{{letter}}</span>
-      <span>Bruxelles</span>
-    </label>
+    <div>
+      <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
+        <input type="radio">
+        <span class="letter">{{letter}}</span>
+        <span>Bruxelles {{ (letter === 'A') ? 'asdfasdfasfd': ''}}</span>
+      </label>
+    </div>
     <button class="primary" routerLink="/score">Suivant</button>
   </form>
 </main>

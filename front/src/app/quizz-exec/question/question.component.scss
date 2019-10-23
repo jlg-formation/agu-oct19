@@ -1,0 +1,27 @@
+p {
+  margin-bottom: 2em;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+label {
+
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+  input {
+    width: 3em;
+  }
+  span.letter {
+    width: 2em;
+  }
+}
+
+button {
+  align-self: flex-end;
+  margin-top: 2em;
+}
