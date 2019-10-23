@@ -1,10 +1,12 @@
 <main>
   <h1>Création d'un Quizz</h1>
-  <form>
+  <form [formGroup]="f">
     <label>
       <div>Nom du Quizz</div>
-      <input appAutofocus type="text">
+      <input appAutofocus type="text" formControlName="name" placeholder="Ex: Maîtriser Angular">
     </label>
     <button class="primary" routerLink="/setup">Suivant</button>
   </form>
 </main>
+
+{{f.value | json }}
