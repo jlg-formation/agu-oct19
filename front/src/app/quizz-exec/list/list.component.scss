@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+div {
+  display: flex;
+  flex-flow: wrap;
+}
+
+$side: 8em;
+
+button {
+  width: $side;
+  height: $side;
+  margin: 0.5em;
+  padding: 1em;
+}
