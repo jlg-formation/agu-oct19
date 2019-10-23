@@ -2,17 +2,32 @@
 
 @import "../node_modules/normalize.css/normalize.css";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
+}
+
+main {
+  padding: 0 0.5em;
 }
 
 *:focus {
   outline-color: #ddd;
 }
 
+input {
+  width: 100%;
+  padding: 0.5em 1em;
+  border: 0.1em solid #eee;
+}
+
 button {
   background: #eee;
   border: 0.1em solid #eee;
+  padding: 0.5em 1em;
 
   &:not(:disabled) {
     &:hover {
@@ -26,8 +41,6 @@ button {
       border: 0.1em solid #ccc;
     }
   }
-
-
 }
 
 a {
