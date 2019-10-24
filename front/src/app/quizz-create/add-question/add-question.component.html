@@ -3,19 +3,19 @@
   <form [formGroup]="f">
     <label>
       <div>Libellé</div>
-      <textarea rows="3" formControlName="label"></textarea>
+      <textarea rows="3" formControlName="label" appAutofocus tabindex="1"></textarea>
     </label>
     <div>Réponses possibles</div>
     <div>
-      <label class="answer" *ngFor="let letter of ['A', 'B', 'C', 'D']">
+      <label class="answer" *ngFor="let letter of ['A', 'B', 'C', 'D']; let i = index">
         <span>{{letter}}</span>
-        <input type="text" [formControlName]="'answer' + letter">
-        <input type="radio" formControlName="correctAnswer" [value]="letter">
+        <input type="text" [formControlName]="'answer' + letter" [tabindex]="i+2">
+        <input type="radio" formControlName="correctAnswer" [value]="letter" [tabindex]="6">
       </label>
     </div>
     <div class="buttons">
-      <button routerLink="/setup">Annuler</button>
-      <button [disabled]="f.invalid" routerLink="/setup" class="primary">Ajouter</button>
+      <button routerLink="/setup" tabindex="7">Annuler</button>
+      <button [disabled]="f.invalid" routerLink="/setup" class="primary" tabindex="8">Ajouter</button>
     </div>
   </form>
   {{f.value | json}}
