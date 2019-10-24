@@ -1,8 +1,6 @@
 <main>
   <h1>Liste des quizz</h1>
   <div>
-    <button routerLink="/question">Les capitales d'europe</button>
-    <button>Maitriser angular</button>
-    <button>La config de git</button>
+    <button *ngFor="let q of quizz.getStoreAsArray()" routerLink="/question">{{q.name}}</button>
   </div>
 </main>

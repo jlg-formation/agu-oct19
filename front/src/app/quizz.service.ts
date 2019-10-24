@@ -64,4 +64,8 @@ export class QuizzService {
   hasQuizz(): boolean {
     return Object.keys(this.store).length > 0;
   }
+
+  getStoreAsArray(): Quizz[] {
+    return Object.values(this.store);
+  }
 }
