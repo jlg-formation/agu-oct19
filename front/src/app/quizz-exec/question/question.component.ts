@@ -23,7 +23,7 @@ export class QuestionComponent implements OnInit {
   }
 
   submit() {
-
+    console.log('submit');
   }
 
 }
