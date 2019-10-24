@@ -60,4 +60,8 @@ export class QuizzService {
     this.store[this.current.name] = this.current;
     this.saveStore();
   }
+
+  hasQuizz(): boolean {
+    return Object.keys(this.store).length > 0;
+  }
 }
