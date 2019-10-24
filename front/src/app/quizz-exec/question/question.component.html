@@ -1,7 +1,7 @@
 <main>
-  <h1>Quizz: Les plus belles capitales d'europe continentale</h1>
-  <h2>Question: {{id}}</h2>
-  <p>Quelle est la capitale de la Belgique ?</p>
+  <h1>Quizz: {{quizz.current.name}}</h1>
+  <h2>Question: {{id + 1}}</h2>
+  <p>{{quizz.current.questions[id].label}}</p>
   <form ngNoForm>
     <div>
       <label *ngFor="let letter of ['A', 'B', 'C', 'D']">
