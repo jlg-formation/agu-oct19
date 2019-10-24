@@ -5,7 +5,7 @@
       <div>Nom du Quizz</div>
       <input appAutofocus type="text" formControlName="name" placeholder="Ex: Maîtriser Angular">
     </label>
-    <button class="primary" routerLink="/setup">Suivant</button>
+    <button [disabled]="f.invalid" class="primary" routerLink="/setup">Suivant</button>
   </form>
 </main>
 
