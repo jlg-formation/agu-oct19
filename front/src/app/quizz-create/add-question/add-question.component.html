@@ -1,16 +1,16 @@
 <main>
   <h1>Ajouter une question</h1>
-  <form ngNoForm>
+  <form [formGroup]="f">
     <label>
       <div>Libellé</div>
-      <textarea rows="3"></textarea>
+      <textarea rows="3" formControlName="label"></textarea>
     </label>
     <div>Réponses possibles</div>
     <div>
       <label class="answer" *ngFor="let letter of ['A', 'B', 'C', 'D']">
         <span>{{letter}}</span>
-        <input type="text">
-        <input type="radio">
+        <input type="text" [formControlName]="'answer' + letter">
+        <input type="radio" formControlName="correctAnswer" [value]="letter">
       </label>
     </div>
     <div class="buttons">
@@ -18,4 +18,5 @@
       <button routerLink="/setup" class="primary">Ajouter</button>
     </div>
   </form>
+  {{f.value | json}}
 </main>
