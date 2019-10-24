@@ -22,4 +22,8 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit() {
+    console.log('submit coucou');
+  }
+
 }

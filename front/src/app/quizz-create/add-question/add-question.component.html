@@ -1,6 +1,6 @@
 <main>
   <h1>Ajouter une question</h1>
-  <form [formGroup]="f">
+  <form [formGroup]="f" (ngSubmit)="submit()">
     <label>
       <div>Libellé</div>
       <textarea rows="3" formControlName="label" appAutofocus tabindex="1"></textarea>
@@ -14,8 +14,8 @@
       </label>
     </div>
     <div class="buttons">
-      <button routerLink="/setup" tabindex="7">Annuler</button>
-      <button [disabled]="f.invalid" routerLink="/setup" class="primary" tabindex="8">Ajouter</button>
+      <button type="button" routerLink="/setup" tabindex="7">Annuler</button>
+      <button type="submit" [disabled]="f.invalid" class="primary" tabindex="8">Ajouter</button>
     </div>
   </form>
   {{f.value | json}}
