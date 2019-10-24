@@ -1,6 +1,6 @@
 <main>
   <fa-icon [icon]="faSmile"></fa-icon>
   <h1>Bravo&nbsp;!</h1>
-  <p>Score: 3/4</p>
+  <p>Score: {{quizz.scoreProgress.score}}/{{quizz.current.questions.length}}</p>
   <button class="primary" routerLink="/">Retour accueil</button>
 </main>
