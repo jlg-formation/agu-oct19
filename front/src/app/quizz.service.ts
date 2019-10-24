@@ -6,12 +6,23 @@ import { Quizz } from './quizz';
 })
 export class QuizzService {
 
-  current: Quizz;
+  current = this.getCurrent();
 
-  constructor() { }
+  constructor() {
+  }
 
   setCurrent(q: Quizz) {
     this.current = q;
     localStorage.setItem('current', JSON.stringify(q));
+  }
+
+  getCurrent() {
+    const str = localStorage.getItem('current');
+    if (!str) {
+      return undefined;
+    }
+    const q = JSON.parse(str);
+    Object.setPrototypeOf(q, Quizz.prototype);
+    return q;
   }
 }
