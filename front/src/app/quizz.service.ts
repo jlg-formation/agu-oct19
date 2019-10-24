@@ -16,7 +16,7 @@ export class QuizzService {
     localStorage.setItem('current', JSON.stringify(q));
   }
 
-  getCurrent() {
+  getCurrent(): Quizz {
     const str = localStorage.getItem('current');
     if (!str) {
       return undefined;
