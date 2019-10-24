@@ -1,6 +1,18 @@
 <main>
-  <fa-icon [icon]="faSmile"></fa-icon>
-  <h1>Bravo&nbsp;!</h1>
+  <ng-container *ngIf="quizz.scoreProgress.score === quizz.current.questions.length; then smile else ridiculize">
+  </ng-container>
+
   <p>Score: {{quizz.scoreProgress.score}}/{{quizz.current.questions.length}}</p>
   <button class="primary" routerLink="/">Retour accueil</button>
 </main>
+
+<ng-template #smile>
+  <fa-icon [icon]="faSmile"></fa-icon>
+  <h1>Bravo&nbsp;!</h1>
+</ng-template>
+
+
+<ng-template #ridiculize>
+  <fa-icon [icon]="faPoo"></fa-icon>
+  <h1>Peut mieux faire&nbsp;!</h1>
+</ng-template>
