@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { QuizzService } from 'src/app/quizz.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -13,7 +13,11 @@ export class QuestionComponent implements OnInit {
   f = new FormGroup({
     givenAnswer: new FormControl('', Validators.required),
   });
-  constructor(private route: ActivatedRoute, public quizz: QuizzService) { }
+  constructor(
+    private route: ActivatedRoute,
+    public quizz: QuizzService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -24,6 +28,21 @@ export class QuestionComponent implements OnInit {
 
   submit() {
     console.log('submit');
+    const givenAnswer = this.f.value.givenAnswer;
+    const correctAnswer = this.quizz.current.questions[this.quizz.scoreProgress.questionIndex]
+      .correctAnswer;
+    if (givenAnswer === correctAnswer) {
+      this.quizz.scoreProgress.score++;
+    }
+    this.quizz.scoreProgress.questionIndex++;
+    this.quizz.saveScoreProgress();
+    const noMoreQuestion = this.quizz.current.questions.length <= this.quizz.scoreProgress.questionIndex;
+    if (noMoreQuestion) {
+      this.router.navigateByUrl('/score');
+      return;
+    }
+    this.f.reset();
+    this.router.navigateByUrl('/question/' + (this.quizz.scoreProgress.questionIndex + 1));
   }
 
 }
