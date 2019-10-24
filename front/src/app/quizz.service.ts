@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Quizz } from './quizz';
+import { Question } from './question';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,11 @@ export class QuizzService {
 
   setCurrent(q: Quizz) {
     this.current = q;
-    localStorage.setItem('current', JSON.stringify(q));
+    this.saveCurrent();
+  }
+
+  saveCurrent() {
+    localStorage.setItem('current', JSON.stringify(this.current));
   }
 
   getCurrent(): Quizz {
@@ -24,5 +29,10 @@ export class QuizzService {
     const q = JSON.parse(str);
     Object.setPrototypeOf(q, Quizz.prototype);
     return q;
+  }
+
+  addQuestion(question: Question) {
+    this.current.questions.push(question);
+    this.saveCurrent();
   }
 }
