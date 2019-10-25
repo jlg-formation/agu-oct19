@@ -1,4 +1,5 @@
 <main *ngIf="quizz.current">
+  <app-chrono></app-chrono>
   <h1>Quizz: {{quizz.current.name}}</h1>
   <h2>Question: {{id + 1}}</h2>
   <p>{{quizz.current.questions[id].label}}</p>
