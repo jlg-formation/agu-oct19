@@ -12,8 +12,10 @@ import { QuizzValidators } from 'src/app/widget/quizz-validators';
 })
 export class CreateComponent implements OnInit {
 
+  nameMaxLength = 40;
+
   f = new FormGroup({
-    name: new FormControl('', [Validators.required, QuizzValidators.maxLength(40)])
+    name: new FormControl('', [Validators.required, QuizzValidators.maxLength(this.nameMaxLength)])
   });
 
   constructor(private router: Router, private quizz: QuizzService) { }

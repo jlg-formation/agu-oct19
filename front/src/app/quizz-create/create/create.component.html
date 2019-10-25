@@ -4,6 +4,7 @@
     <label>
       <div>Nom du Quizz</div>
       <input appAutofocus type="text" formControlName="name" placeholder="Ex: Maîtriser Angular">
+      <app-show-max-length [max]="nameMaxLength" [length]="f.value.name.length"></app-show-max-length>
     </label>
     <button [disabled]="f.invalid" class="primary">Suivant</button>
   </form>
