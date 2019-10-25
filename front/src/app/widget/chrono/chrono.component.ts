@@ -26,7 +26,7 @@ export class ChronoComponent implements OnInit {
     ).subscribe(x => {
       this.counter = x;
       if (x === 0) {
-        this.dringdring.emit('dringdringdrangdrang !!!')
+        this.dringdring.emit('dringdringdrangdrang !!!');
       }
     });
   }
