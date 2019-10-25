@@ -7,8 +7,10 @@ const port = 8000;
 
 app.use(cors());
 
+const store = {};
+
 app.get('/ws/quizz', (req, res, next) => {
-    res.json({ toto: 123 });
+    res.json(store);
 });
 
 app.use(express.static('.'));

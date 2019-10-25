@@ -12,8 +12,10 @@ export class HttpQuizzService extends QuizzService {
     super();
     console.log('http service');
     this.http.get<Store>('http://localhost:8000/ws/quizz')
-      .subscribe(data => {
-        console.log('data: ', data);
+      .subscribe(store => {
+        console.log('store: ', store);
+        this.store = store;
+        this.saveStore();
       }, err => console.error('http get error', err));
-}
+  }
 }
