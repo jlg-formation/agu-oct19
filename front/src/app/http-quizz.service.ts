@@ -11,11 +11,9 @@ export class HttpQuizzService extends QuizzService {
   constructor(private http: HttpClient) {
     super();
     console.log('http service');
-    this.http.get<Store>('http://localhost:8000/ws/quizz').subscribe({
-      next: data => {
+    this.http.get<Store>('http://localhost:8000/ws/quizz')
+      .subscribe(data => {
         console.log('data: ', data);
-      },
-      error: err => console.error('http get error', err)
-    });
-  }
+      }, err => console.error('http get error', err));
+}
 }
