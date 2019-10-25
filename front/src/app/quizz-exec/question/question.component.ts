@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizzService } from 'src/app/quizz.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ChronoComponent } from 'src/app/widget/chrono/chrono.component';
 
 @Component({
   selector: 'app-question',
@@ -13,6 +14,9 @@ export class QuestionComponent implements OnInit {
   f = new FormGroup({
     givenAnswer: new FormControl('', Validators.required),
   });
+
+  @ViewChild(ChronoComponent, {static: false}) chrono: ChronoComponent;
+
   constructor(
     private route: ActivatedRoute,
     public quizz: QuizzService,
@@ -42,11 +46,13 @@ export class QuestionComponent implements OnInit {
       return;
     }
     this.f.reset();
+    this.chrono.ngOnInit();
     this.router.navigateByUrl('/question/' + (this.quizz.scoreProgress.questionIndex + 1));
   }
 
   goToNextQuestion(message: string) {
     console.log('too late !!!', message);
+    this.submit();
   }
 
 }
