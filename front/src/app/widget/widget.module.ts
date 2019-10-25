@@ -4,14 +4,15 @@ import { AutofocusDirective } from './autofocus.directive';
 import { ShowMaxLengthComponent } from './show-max-length/show-max-length.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { ChronoComponent } from './chrono/chrono.component';
+import { TimeFormatPipe } from './time-format.pipe';
 
 
 
 @NgModule({
-  declarations: [AutofocusDirective, ShowMaxLengthComponent, RadioButtonComponent, ChronoComponent],
+  declarations: [AutofocusDirective, ShowMaxLengthComponent, RadioButtonComponent, ChronoComponent, TimeFormatPipe],
   imports: [
     CommonModule
   ],
-  exports: [AutofocusDirective, ShowMaxLengthComponent, RadioButtonComponent, ChronoComponent]
+  exports: [AutofocusDirective, ShowMaxLengthComponent, RadioButtonComponent, ChronoComponent, TimeFormatPipe]
 })
 export class WidgetModule { }

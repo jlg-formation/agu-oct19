@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chrono',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chrono.component.scss']
 })
 export class ChronoComponent implements OnInit {
+
+  @Input() duration: number;
 
   constructor() { }
 
