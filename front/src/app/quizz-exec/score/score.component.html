@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="quizz.scoreProgress">
   <ng-container *ngIf="quizz.scoreProgress.score === quizz.current.questions.length; then smile else ridiculize">
   </ng-container>
 

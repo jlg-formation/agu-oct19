@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="quizz.current">
   <h1>Quizz: {{quizz.current.name}}</h1>
   <h2>Question: {{id + 1}}</h2>
   <p>{{quizz.current.questions[id].label}}</p>
