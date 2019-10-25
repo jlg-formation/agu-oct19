@@ -4,11 +4,12 @@ import { CreateComponent } from './create/create.component';
 import { SetupComponent } from './setup/setup.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { FinishedComponent } from './finished/finished.component';
+import { QuizzGuard } from '../quizz.guard';
 
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent },
-  { path: 'setup', component: SetupComponent },
+  { path: 'setup', component: SetupComponent, canActivate: [QuizzGuard] },
   { path: 'add-question', component: AddQuestionComponent },
   { path: 'finished', component: FinishedComponent },
 ];
