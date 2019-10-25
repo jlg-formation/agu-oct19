@@ -13,7 +13,7 @@ import { QuizzValidators } from 'src/app/widget/quizz-validators';
 export class CreateComponent implements OnInit {
 
   f = new FormGroup({
-    name: new FormControl('', [Validators.required, QuizzValidators.maxLength(100)])
+    name: new FormControl('', [Validators.required, QuizzValidators.maxLength(40)])
   });
 
   constructor(private router: Router, private quizz: QuizzService) { }

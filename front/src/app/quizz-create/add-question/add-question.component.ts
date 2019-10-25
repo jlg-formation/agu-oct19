@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { QuizzService } from 'src/app/quizz.service';
 import { Question } from 'src/app/question';
+import { QuizzValidators } from 'src/app/widget/quizz-validators';
 
 @Component({
   selector: 'app-add-question',
@@ -12,11 +13,11 @@ import { Question } from 'src/app/question';
 export class AddQuestionComponent implements OnInit {
 
   f = new FormGroup({
-    label: new FormControl('Quelle est la capitale de la Belgique ?', Validators.required),
-    answerA: new FormControl('Paris', Validators.required),
-    answerB: new FormControl('Bruxelles', Validators.required),
-    answerC: new FormControl('Rome', Validators.required),
-    answerD: new FormControl('Bucarest', Validators.required),
+    label: new FormControl('Quelle est la capitale de la Belgique ?', [Validators.required, QuizzValidators.maxLength(200)]),
+    answerA: new FormControl('Paris', [Validators.required, QuizzValidators.maxLength(100)]),
+    answerB: new FormControl('Bruxelles', [Validators.required, QuizzValidators.maxLength(100)]),
+    answerC: new FormControl('Rome', [Validators.required, QuizzValidators.maxLength(100)]),
+    answerD: new FormControl('Bucarest', [Validators.required, QuizzValidators.maxLength(100)]),
     correctAnswer: new FormControl('', Validators.required),
   });
 
