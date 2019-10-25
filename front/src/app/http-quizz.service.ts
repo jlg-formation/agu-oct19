@@ -18,4 +18,13 @@ export class HttpQuizzService extends QuizzService {
         this.saveStore();
       }, err => console.error('http get error', err));
   }
+
+  addQuizz() {
+    super.addQuizz();
+    this.http.post('http://localhost:8000/ws/quizz', this.store)
+      .subscribe(
+        () => console.log('store pushed with success'),
+        err => console.error('http post error', err)
+      );
+  }
 }
