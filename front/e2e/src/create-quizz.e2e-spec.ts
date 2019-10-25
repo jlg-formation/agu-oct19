@@ -37,7 +37,7 @@ describe('workspace-project App', () => {
     await setup.clickOnFinishButton();
 
 
-    await browser.sleep(3000);
+    // await browser.sleep(3000);
     expect(finished.getLabel()).toEqual('Bravo !');
   });
 
