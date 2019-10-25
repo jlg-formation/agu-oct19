@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { startWith, map, take } from 'rxjs/operators';
 
 
@@ -15,10 +15,16 @@ export class ChronoComponent implements OnInit {
   @Output() dringdring = new EventEmitter<string>();
 
   counter: number;
+
+  subscription: Subscription;
+
   constructor() { }
 
   ngOnInit() {
-    interval(1000).pipe(
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    this.subscription = interval(1000).pipe(
       map(x => x + 1),
       startWith(0),
       take(this.duration + 1),
