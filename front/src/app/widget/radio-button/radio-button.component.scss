@@ -1,0 +1,62 @@
+app-radio-button {
+  display: flex;
+  width: 5em;
+  justify-content: flex-end;
+
+  .container {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-left: 2.1em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    user-select: none;
+    top: -0.15em;
+  }
+
+  .container input {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  .container:hover input~.checkmark {
+    background-color: #ccc;
+  }
+
+  .container input:checked~.checkmark {
+    background-color: #666;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked~.checkmark:after {
+    display: block;
+  }
+
+  .container .checkmark:after {
+    top: 0.25em;
+    left: 0.25em;
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+}

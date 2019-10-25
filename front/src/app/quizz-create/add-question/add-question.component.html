@@ -10,7 +10,9 @@
       <label class="answer" *ngFor="let letter of ['A', 'B', 'C', 'D']; let i = index">
         <span>{{letter}}</span>
         <input type="text" [formControlName]="'answer' + letter" [tabindex]="i+2">
-        <input type="radio" formControlName="correctAnswer" [value]="letter" [tabindex]="6">
+        <app-radio-button>
+          <input type="radio" formControlName="correctAnswer" [value]="letter" [tabindex]="6">
+        </app-radio-button>
       </label>
     </div>
     <div class="buttons">
