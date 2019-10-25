@@ -45,4 +45,8 @@ export class QuestionComponent implements OnInit {
     this.router.navigateByUrl('/question/' + (this.quizz.scoreProgress.questionIndex + 1));
   }
 
+  goToNextQuestion(message: string) {
+    console.log('too late !!!', message);
+  }
+
 }

@@ -1,5 +1,5 @@
 <main *ngIf="quizz.current">
-  <app-chrono [duration]="90"></app-chrono>
+  <app-chrono [duration]="5" (dringdring)="goToNextQuestion($event)"></app-chrono>
   <h1>Quizz: {{quizz.current.name}}</h1>
   <h2>Question: {{id + 1}}</h2>
   <p>{{quizz.current.questions[id].label}}</p>
